@@ -21,6 +21,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
 from listings.views import CustomTokenObtainPairView, UserRegistrationView
+from django.views.generic import TemplateView
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -40,5 +41,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('api/v1/', include('listings.urls')), 
+    path('api/v1/', include('listings.urls')),
+    path('', TemplateView.as_view(template_name='index.html'), name='home'), 
 ]
