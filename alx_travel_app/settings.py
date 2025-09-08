@@ -34,7 +34,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 DEBUG = env("DEBUG") != 'False'
 SECRET_KEY = env("SECRET_KEY")
 
-ALLOWED_HOSTS = ['olaish05.pythonanywhere.com','127.0.0.1']
+ALLOWED_HOSTS = ['olaish.pythonanywhere.com','127.0.0.1']
 
 CHAPA_SECRET_KEY = os.environ.get('CHAPA_SECRET_KEY')
 CHAPA_PUBLIC_KEY = os.environ.get('CHAPA_PUBLIC_KEY')
@@ -231,7 +231,7 @@ USE_TZ = True
 
 ## For example, for a site URL is at 'web-production-3640.up.railway.app'
 ## (replace the string below with your own site URL):
-CSRF_TRUSTED_ORIGINS = ['https://olaish05.pythonanywhere.com']
+CSRF_TRUSTED_ORIGINS = ['https://olaish.pythonanywhere.com']
 
 # During development/for this tutorial you can instead set just the base URL
 # CSRF_TRUSTED_ORIGINS = ['https://*.pythonanywhere.com']
