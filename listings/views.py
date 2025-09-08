@@ -15,24 +15,24 @@ from rest_framework.exceptions import PermissionDenied
 from .services import ChapaService
 from rest_framework.decorators import action
 from django.shortcuts import get_object_or_404
-from .tasks import send_payment_confirmation_email, send_booking_confirmation_email
+# from .tasks import send_payment_confirmation_email, send_booking_confirmation_email
 from decimal import Decimal
-from django_ratelimit.decorators import ratelimit
-from django.utils.decorators import method_decorator
-from django_ratelimit.exceptions import Ratelimited
-from django.http import HttpResponse
+# from django_ratelimit.decorators import ratelimit
+# from django.utils.decorators import method_decorator
+# from django_ratelimit.exceptions import Ratelimited
+# from django.http import HttpResponse
 
-def rate_limiting_error(request, exception):
-    """
-    A simple view that returns a message indicating that the user has been rate-limited.
-    """
-    if isinstance(exception, Ratelimited):
-        return HttpResponse(
-          "Rate limit exceeded. Please try again later.", 
-          status=status.HTTP_429_TOO_MANY_REQUESTS
-          )
-    raise exception
-
+# def rate_limiting_error(request, exception):
+    # """
+    # A simple view that returns a message indicating that the user has been rate-limited.
+    # """
+    # if isinstance(exception, Ratelimited):
+        # return HttpResponse(
+          # "Rate limit exceeded. Please try again later.", 
+          # status=status.HTTP_429_TOO_MANY_REQUESTS
+          # )
+    # raise exception
+# 
 class CustomTokenObtainPairView(TokenObtainPairView):
   """
   View to obtain JWT tokens with additional user info.
@@ -201,7 +201,7 @@ class BookingViewSet(viewsets.ModelViewSet):
           'end_date': end_date,
           'total_amount': total_amount,
         }
-        send_booking_confirmation_email.delay(user_email=request.user.email, booking_details=booking_details)
+        # send_booking_confirmation_email.delay(user_email=request.user.email, booking_details=booking_details)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 class PaymentViewSet(viewsets.ModelViewSet):
@@ -338,7 +338,7 @@ class PaymentViewSet(viewsets.ModelViewSet):
                 payment.chapa_response.update({'verification': verification_response})
             
             payment.save()
-            send_payment_confirmation_email.delay(payment.user_id.email) # type: ignore
+            # send_payment_confirmation_email.delay(payment.user_id.email) # type: ignore
             
             return Response({
                 'success': True,
