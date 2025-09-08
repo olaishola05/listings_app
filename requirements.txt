@@ -13,23 +13,15 @@ dj-database-url==3.0.1
 Django==5.2.4
 django-cors-headers==4.7.0
 django-environ==0.12.0
-# django-ip-geolocation==1.6.1
-# django-ipware==7.0.1
-# django-ratelimit==4.1.0
-# django-redis==6.0.0
 djangorestframework==3.16.0
 djangorestframework_simplejwt==5.5.1
 drf-yasg==1.21.10
-# environ==1.0
 gunicorn==23.0.0
 idna==3.10
 inflection==0.5.1
 joblib==1.5.2
 kombu==5.5.4
-# mysqlclient==2.2.7
-# numpy==2.3.2
 packaging==25.0
-# pandas==2.3.2
 prompt_toolkit==3.0.51
 pycparser==2.22
 PyJWT==2.10.1
@@ -37,11 +29,8 @@ python-dateutil==2.9.0.post0
 python-ipware==3.0.0
 pytz==2025.2
 PyYAML==6.0.2
-# rabbitmq==0.2.0
-# redis==6.4.0
 requests==2.32.4
 scikit-learn==1.7.1
-# scipy==1.16.1
 six==1.17.0
 sqlparse==0.5.3
 threadpoolctl==3.6.0
@@ -50,4 +39,3 @@ uritemplate==4.2.0
 urllib3==2.5.0
 vine==5.1.0
 wcwidth==0.2.13
-# whitenoise==6.9.0
